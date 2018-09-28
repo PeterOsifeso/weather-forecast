@@ -1,0 +1,25 @@
+@import "src/styles.scss";
+
+.header-section {
+  position: relative;
+  background: url("/assets/background_section.jpg") no-repeat center local;
+  height: $header-height;
+  z-index: 0;
+}
+.header-text {
+  position: absolute;
+  top: 250px;
+  width: 100%;
+  //line-height: $header-height;
+  z-index: -1;
+}
+.header-text h3 {
+  color: $white-text;
+  text-align: center;
+  margin: 0;
+  font-size: $large-text;
+}
+
+@media screen and (max-width: 600px) {
+  background: url("/assets/background_section_mobile.jpg") no-repeat center fixed;
+}

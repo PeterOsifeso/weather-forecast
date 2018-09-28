@@ -1,0 +1,14 @@
+<section class="search-section-container">
+  <main class="search-section">
+    <h3 class="section-header">Search City</h3>
+    <br>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <input id="city" type="text" placeholder="City..." formControlName="city">
+      </div>
+      <button (click)="searchCity()" [disabled]="form.invalid">Search</button>
+    </form>
+    <br>
+    <app-weather-widget *ngIf="cityWeatherForecast" [cityWeatherForecast]="cityWeatherForecast"></app-weather-widget>
+  </main>
+</section>

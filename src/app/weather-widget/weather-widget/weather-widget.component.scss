@@ -1,0 +1,24 @@
+@import "src/styles.scss";
+
+.weather-widget {
+  background: url("/assets/new_york.jpg") no-repeat center local;
+  display: flex;
+  flex-wrap: wrap;
+  color: $white-text;
+}
+.weather-widget-section {
+  width: calc(100% / 3);
+  max-width: calc(100% / 3);
+  //padding: 10px;
+}
+
+.one {
+  background: rgba(242, 242, 242, 0.33);
+  //padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .weather-widget {
+    background: url("/assets/new_york_mobile.jpg") no-repeat center local;
+  }
+}

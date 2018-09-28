@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Avenir-Light';
+  src: url('/assets/fonts/AvenirLTStd-Light.otf') format('opentype');
+}
+
+$header-height : 500px;
+$white-text: #fff;
+$active: #82beff;
+$extra-large-text: 25pt;
+$large-text: 20pt;
+$medium-text: 18pt;
+$normal-text: 15pt;
+$small-text: 12pt;
+$extra-small-text: 10pt;
+
+html, body, section, h3 {
+  margin: 0;
+  font-family: Avenir-Light, sans-serif;
+}

@@ -1,0 +1,14 @@
+<div class="weather-widget">
+  <section class="weather-widget-section one">
+    <div *ngFor="let day of cityWeatherForecast">
+      <h3>{{day.weather[0].main}}</h3>
+      <h1>{{day.main.temp_max | kelvinToCelcius}}</h1>
+    </div>
+  </section>
+  <section class="weather-widget-section two">
+    Holder 2
+  </section>
+  <section class="weather-widget-section three">
+    Holder 3
+  </section>
+</div>
