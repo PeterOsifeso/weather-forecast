@@ -2,7 +2,7 @@
 
 .search-section-container {
   background-color: #262B2F;
-  height: 700px;
+  //height: 700px;
   padding: 30px;
 }
 .search-section {
@@ -50,8 +50,17 @@ form button {
   font-size: $small-text;
   margin-bottom: 8px;
 }
-@media (max-width: 600px) {
+@media only screen and (max-width: 600px) {
+  .section-header {
+
+    padding: 0;
+    margin: 0 auto;
+  }
+  .search-section {
+    padding: 15px;
+  }
   .search-section-container {
-    height: 550px;
+    padding: 0;
+    //height: 550px;
   }
 }

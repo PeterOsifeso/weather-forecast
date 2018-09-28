@@ -14,30 +14,46 @@ $weather-row-height : 97px;
 .weather-widget-section {
   max-height: 400px;
   overflow-y: auto;
+  position: relative;
 }
 
 .one {
   background: rgba(242, 242, 242, 0.6);
   width: 25%;
+  height: 550px;
 }
 .two {
   position: relative;
+  height: 550px;
   width: 50%;
-  max-width: 50%;
+  //max-width: 50%;
   color: $white-text;
 }
 .three {
   width: 25%;
-  max-width: 25%;
+  //max-width: 25%;
   background: rgba(21, 16, 16, 0.37);
   color: $white-text;
   padding: 20px;
   text-align: center;
+  height: 550px;
 }
 
 
-@media (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   .weather-widget {
-    background: url("/assets/new_york_mobile.jpg") no-repeat center local;
+    background: url("/assets/new_york_mobile.jpg") no-repeat local;
   }
 }
+@media only screen and (max-width: 650px) {
+  .weather-widget-section {
+    width: 100%;
+    height: 700px;
+  }
+  .one, .two, .three {
+    min-height: 233.3px;
+    height: 233.3px !important;
+    max-height: 233.3px !important;
+  }
+}
+

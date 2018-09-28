@@ -33,3 +33,15 @@
   left: 15px;
   right: 15px;
 }
+.weather-center {
+  width: 100%;
+  //position: relative;
+}
+
+@media only screen and (max-width: 949px) and (min-width: 650px) {
+  .bottom-temp  {
+    bottom: 30px;
+    right: 0;
+  }
+}
+
