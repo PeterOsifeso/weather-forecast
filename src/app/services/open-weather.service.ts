@@ -13,13 +13,11 @@ export class OpenWeatherService {
   private getCityForecastApiUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=';
   constructor(private http: HttpClient) { }
   getCityWeather(cityName: string): Observable<any> {
-    const city = cityName.split(' ').join(',');
-    const url = this.getCityWeatherApiUrl + city + '&appid=' + OPEN_WEATHER_API_CONFIG.API_KEY;
+    const url = this.getCityWeatherApiUrl + cityName + '&appid=' + OPEN_WEATHER_API_CONFIG.API_KEY;
     return this.http.get(url);
   }
   getCityForecast(cityName: string): Observable<any> {
-    const city = cityName.split(' ').join(',');
-    const url = this.getCityForecastApiUrl + city + '&appid=' + OPEN_WEATHER_API_CONFIG.API_KEY;
+    const url = this.getCityForecastApiUrl + cityName + '&appid=' + OPEN_WEATHER_API_CONFIG.API_KEY;
     return this.http.get(url);
   }
 }

@@ -1,0 +1,35 @@
+@import "src/styles.scss";
+
+.city-name {
+  font-size: $xx-large-text;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.bottom-time-and-temp {
+  box-sizing: border-box;
+  padding: 20px;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  max-width: 100%;
+  line-height: $jumbo-txt;
+}
+
+.bottom-temp {
+  position: absolute;
+  right: 15px;
+  bottom: 0;
+  font-size: $jumbo-txt;
+}
+.bottom-time {
+  font-size: $large-text;
+}
+
+.bottom-time-date {
+  position: absolute;
+  font-size: $normal-text;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+}

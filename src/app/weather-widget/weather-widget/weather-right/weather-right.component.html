@@ -1,0 +1,19 @@
+<div class="active-day-top">
+  <img src="{{imgUrl + activeDay[0].weather[0].icon + '.png' }}" class="icon-img">
+  <div class="active-day-description">{{activeDay[0].weather[0].main}}</div>
+</div>
+<div *ngFor="let forecast of activeDay; first as isFirst">
+  <p class="active-day-forecast">
+    <span class="left" *ngIf="activeDay === currentDay && isFirst else showDate">
+      Now
+    </span>
+    <ng-template #showDate>
+      <span class="left">
+      {{forecast.dt_txt | date: 'hh:mm' }}
+      </span>
+    </ng-template>
+
+    <span class="right">
+      {{forecast.main.temp | kelvinToCelcius}}
+    </span>
+</div>

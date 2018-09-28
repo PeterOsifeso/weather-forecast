@@ -10,7 +10,7 @@ import {Forecast, WeatherForecast} from '../../shared/models/weather-forecast';
 })
 export class SearchSectionComponent implements OnInit {
   form: FormGroup;
-  cityWeatherForecast: Array<Forecast>;
+  cityWeatherForecast: WeatherForecast;
   constructor(private openWeatherService: OpenWeatherService) { }
 
   ngOnInit() {
@@ -22,21 +22,10 @@ export class SearchSectionComponent implements OnInit {
   searchCity() {
     console.log('Searching for ', this.form.getRawValue().city);
     this.openWeatherService.getCityForecast(this.form.getRawValue().city).subscribe( (data: WeatherForecast) => {
-      this.filterDates(data);
+      this.cityWeatherForecast = data;
     }, err => {
       console.log('An errror occurred ', err);
       // TODO - display some error message to user
     });
-  }
-  filterDates(weatherForecast) {
-    this.cityWeatherForecast = [];
-    weatherForecast.list.forEach(
-      (data: Forecast, i) => {
-        if (i % 8 === 0) {
-          this.cityWeatherForecast.push(data);
-        }
-      });
-    // TODO -remove console.log
-    // console.log('filtered', this.cityWeatherForecast);
   }
 }

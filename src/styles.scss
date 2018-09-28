@@ -7,6 +7,8 @@
 $header-height : 500px;
 $white-text: #fff;
 $active: #82beff;
+$jumbo-txt: 45pt;
+$xx-large-text: 29pt;
 $extra-large-text: 25pt;
 $large-text: 20pt;
 $medium-text: 18pt;
@@ -17,4 +19,5 @@ $extra-small-text: 10pt;
 html, body, section, h3 {
   margin: 0;
   font-family: Avenir-Light, sans-serif;
+  box-sizing: border-box;
 }

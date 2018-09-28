@@ -1,0 +1,21 @@
+@import "src/styles.scss";
+
+.active-day-top {
+  border-bottom: 2px solid white;
+}
+.active-day-description {
+  font-size: $large-text;
+}
+.icon-img {
+  width: 100px;
+}
+.active-day-forecast {
+  border-bottom: 1px solid white;
+  padding: 5px;
+  text-align: left;
+  //position: absolute;
+
+  .right {
+    float: right;
+  }
+}

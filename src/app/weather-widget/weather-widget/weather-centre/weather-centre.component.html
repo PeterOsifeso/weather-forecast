@@ -1,0 +1,15 @@
+<div class="city-name">
+  {{cityName}}
+</div>
+<div class="bottom-time-date">
+      <span class="bottom-time">
+        {{activeDay[0].dt_txt.split(' ')[1]}}
+      </span>
+  <div class="bottom-date">
+    {{activeDay[0].dt_txt.split(' ')[0] | date: 'EEEE, MMMM d, y'}}
+  </div>
+  <span class="bottom-temp">
+  {{activeDay[0].main.temp_max | kelvinToCelcius}}
+</span>
+</div>
+

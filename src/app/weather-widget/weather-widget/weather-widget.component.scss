@@ -1,21 +1,40 @@
 @import "src/styles.scss";
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+$weather-row-height : 97px;
 .weather-widget {
   background: url("/assets/new_york.jpg") no-repeat center local;
   display: flex;
   flex-wrap: wrap;
-  color: $white-text;
+  width: 100%;
 }
 .weather-widget-section {
-  width: calc(100% / 3);
-  max-width: calc(100% / 3);
-  //padding: 10px;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .one {
-  background: rgba(242, 242, 242, 0.33);
-  //padding: 10px;
+  background: rgba(242, 242, 242, 0.6);
+  width: 25%;
 }
+.two {
+  position: relative;
+  width: 50%;
+  max-width: 50%;
+  color: $white-text;
+}
+.three {
+  width: 25%;
+  max-width: 25%;
+  background: rgba(21, 16, 16, 0.37);
+  color: $white-text;
+  padding: 20px;
+  text-align: center;
+}
+
 
 @media (max-width: 600px) {
   .weather-widget {

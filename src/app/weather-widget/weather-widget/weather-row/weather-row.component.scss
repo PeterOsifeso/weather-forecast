@@ -1,0 +1,28 @@
+@import "src/styles.scss";
+
+.weather-row {
+  padding: 0 40px;
+  background: rgba(242, 242, 242, 0.6);
+  //height: $weather-row-height;
+  max-height: 100px ;
+  //min-height: 73px;
+}
+.weather-row-active {
+  background: #222127;
+  opacity: 0.65;
+  color: $white-text;
+}
+.weather-row-content {
+  border-bottom: 0.4px solid black;
+  padding: 18px 0;
+}
+.weather-row-temp {
+  font-size: $large-text;
+}
+.weather-row-date {
+  float: right;
+}
+.weather-row-description {
+  font-size: $normal-text;
+  margin-bottom: 8px;
+}
