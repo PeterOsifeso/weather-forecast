@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges } from '@angular/core';
 import {Forecast, WeatherForecast} from '../../shared/models/weather-forecast';
+import {OpenWeatherService} from '../../services/open-weather.service';
 
 @Component({
   selector: 'app-weather-widget',
@@ -10,7 +11,7 @@ export class WeatherWidgetComponent implements OnChanges {
   @Input() readonly cityWeatherForecast: WeatherForecast;
   filteredForecastDays: Array<Array<Forecast>>;
   activeDay: Array<Forecast>;
-  constructor() {
+  constructor(private openWeatherService: OpenWeatherService) {
   }
 
   ngOnChanges(): void {
@@ -18,29 +19,11 @@ export class WeatherWidgetComponent implements OnChanges {
   }
 
   initializeWeatherWidget(): void {
-    this.filterDatesHack(this.cityWeatherForecast);
+    this.filteredForecastDays = this.openWeatherService.filterDatesHack(this.cityWeatherForecast);
     this.activeDay = this.filteredForecastDays[0];
   }
 
   onDaySelect(day: Array<Forecast>): void {
     this.activeDay = day;
-  }
-
-  filterDatesHack(weatherForecast): void {
-    this.filteredForecastDays = [];
-    let currentDate = weatherForecast.list[0].dt_txt.split(' ')[0];
-    this.filteredForecastDays[0] = [];
-    weatherForecast.list.forEach(
-      (data: Forecast, i) => {
-        if (currentDate === data.dt_txt.split(' ')[0]) {
-          this.filteredForecastDays[this.filteredForecastDays.length - 1].push(data);
-        } else {
-          currentDate = data.dt_txt.split(' ')[0];
-          this.filteredForecastDays.push(weatherForecast.list[i]);
-          this.filteredForecastDays[this.filteredForecastDays.length - 1] = [];
-        }
-      });
-    // TODO - remove console log and try to find a better way to do this
-    // console.log('New Format of forecast for days', this.filteredForecastDays);
   }
 }

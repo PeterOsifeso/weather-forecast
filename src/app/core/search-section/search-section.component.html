@@ -6,9 +6,9 @@
       <div class="form-group">
         <input id="city" type="text" placeholder="City..." formControlName="city">
       </div>
-      <button (click)="searchCity()" [disabled]="form.invalid">Search</button>
+      <button (click)="searchCity(form.getRawValue().city)" [disabled]="form.invalid">Search</button>
     </form>
     <br>
-    <app-weather-widget *ngIf="cityWeatherForecast" [cityWeatherForecast]="cityWeatherForecast"></app-weather-widget>
+    <app-weather-widget *ngIf="weatherService.getCityWeatherForecast()" [cityWeatherForecast]="weatherService.getCityWeatherForecast()"></app-weather-widget>
   </main>
 </section>

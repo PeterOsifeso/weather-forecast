@@ -22,7 +22,10 @@ html, body, section, h3 {
   box-sizing: border-box;
 }
 
-
+.section-header {
+  font-size: $large-text;
+  text-align: center;
+}
 //@media only screen and (max-width: 650px) {
 //  body {
 //    width: 90%;

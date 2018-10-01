@@ -1,0 +1,17 @@
+<section class="browse-section-container">
+  <main class="browse-section">
+    <br>
+    <h3 class="section-header">Browse City</h3>
+    <br>
+    <div class="weather-cards-container">
+      <div class="city-weather-cards">
+        <div class="city-weather-card" *ngFor="let cityWeather of paginationService.selectedPageContent">
+          <app-weather-card [activeWeather]="weatherService.cityWeatherForecast" [cityWeather]="cityWeather" (cardSelect)="onWeatherCardSelect($event)"></app-weather-card>
+        </div>
+      </div>
+    </div>
+    <div class="pagination" *ngIf="paginationService.selectedPageContent">
+      <app-pagination [noOfPages]="noOfPages" [startPage]="startPage"></app-pagination>
+    </div>
+  </main>
+</section>

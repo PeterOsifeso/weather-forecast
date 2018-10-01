@@ -1,0 +1,22 @@
+button {
+  color: lightseagreen;
+  width: 40px;
+  height: 40px;
+  border-color: lightgray;
+  outline: none;
+}
+button:not(.previous-button) {
+  border-left: none;
+}
+.active, button:hover {
+  color: lightgray;
+  background: whitesmoke;
+}
+.previous-button {
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+}
+.next-button {
+  border-bottom-right-radius: 7px;
+  border-top-right-radius: 7px;
+}

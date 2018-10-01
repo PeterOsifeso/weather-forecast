@@ -1,0 +1,24 @@
+@import "src/styles.scss";
+
+.map-section-container {
+  background-color: #262B2F;
+  height: 520px;
+  padding: 30px;
+}
+.map-section {
+  max-width: 1200px;
+  padding: 30px;
+  margin: 0 auto;
+}
+.section-header {
+  color: $white-text;
+}
+agm-map {
+  height: 300px;
+}
+
+@media screen and (max-width: 600px) {
+  .map-section-container {
+    height: 350px;
+  }
+}

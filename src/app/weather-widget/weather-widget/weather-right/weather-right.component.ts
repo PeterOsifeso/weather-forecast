@@ -9,7 +9,7 @@ import {Forecast} from '../../../shared/models/weather-forecast';
 export class WeatherRightComponent implements OnInit {
   @Input() currentDay: Array<Forecast>;
   @Input() activeDay: Array<Forecast>;
-  imgUrl = 'http://openweathermap.org/img/w/'
+  imgUrl = 'http://openweathermap.org/img/w/';
   constructor() { }
 
   ngOnInit() {

@@ -1,0 +1,32 @@
+@import "src/styles.scss";
+
+.card {
+  background: #fff;
+  width: 179px;
+  height: 179px;
+  cursor: pointer;
+}
+.card:hover, .card-active {
+  background: #c7c7c7;
+}
+.card-container {
+  width: 100%;
+  text-align: center;
+}
+.card-img {
+  width: 45px;
+  margin: 0 auto;
+}
+.city-name {
+  font-weight: bolder;
+  font-size: $normal-text;
+}
+p {
+  font-size: $small-text;
+  margin: 10px;
+}
+@media screen and (max-width: 600px) {
+  .card {
+    width: 156px;
+  }
+}
