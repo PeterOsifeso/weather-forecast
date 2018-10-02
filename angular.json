@@ -27,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/snazzy-info-window/dist/snazzy-info-window.css",
               "src/styles.scss"
             ],
             "scripts": []

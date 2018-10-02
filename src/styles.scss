@@ -16,7 +16,7 @@ $normal-text: 15pt;
 $small-text: 12pt;
 $extra-small-text: 10pt;
 
-html, body, section, h3 {
+html, body, section, h3, footer, p {
   margin: 0;
   font-family: Avenir-Light, sans-serif;
   box-sizing: border-box;
@@ -24,6 +24,9 @@ html, body, section, h3 {
 
 .section-header {
   font-size: $large-text;
+  text-align: center;
+}
+.text-center {
   text-align: center;
 }
 //@media only screen and (max-width: 650px) {

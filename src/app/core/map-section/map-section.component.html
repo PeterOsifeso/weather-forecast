@@ -1,9 +1,32 @@
-<section class="map-section-container">
+<section class="map-section-container" id="map">
   <main class="map-section">
     <h3 class="section-header">Map</h3>
     <br>
-    <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+
+    <agm-map #AgmMap
+             [latitude]="lat"
+             [longitude]="lng"
+             [zoom]="3"
+             [zoomControl]="true"
+             [streetViewControl]="false">
+      <agm-snazzy-info-window *ngFor="let city of cities"
+                              [isOpen]="true"
+                              [latitude]="city.coord.Lat"
+                              [longitude]="city.coord.Lon"
+                              [closeWhenOthersOpen]="false"
+                              [closeOnMapClick]="false"
+                              [pointer]="false"
+                              [showCloseButton]="false"
+                              [border]="false"
+                              [shadow]="false"
+                              [placement]="'right'"
+                              [padding]="'0'"
+                              [backgroundColor]="'transparent'">
+        <ng-template>
+          <img src="{{imgUrl + city.weather[0].icon + '.png'}}">
+          <p class="text-center temp-text"><strong>{{city.main.temp}}°C</strong></p>
+        </ng-template>
+      </agm-snazzy-info-window>
     </agm-map>
   </main>
 </section>

@@ -7,18 +7,24 @@
 }
 .map-section {
   max-width: 1200px;
-  padding: 30px;
+  padding: 10px;
   margin: 0 auto;
 }
 .section-header {
   color: $white-text;
 }
-agm-map {
-  height: 300px;
+.temp-text {
+  margin: 0;
+  color: gray;
 }
-
+agm-map {
+  height: 400px;
+}
 @media screen and (max-width: 600px) {
   .map-section-container {
     height: 350px;
+  }
+  agm-map {
+    height: 260px;
   }
 }

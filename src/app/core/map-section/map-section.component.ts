@@ -1,5 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {WeatherWidgetService} from '../../services/weather-widget.service';
+import {WeatherForecast} from '../../shared/models/weather-forecast';
+import {PaginationService} from '../../services/pagination.service';
+import {AgmMap, LatLngBounds, GoogleMapsAPIWrapper} from '@agm/core';
 
+declare var google: any;
 
 @Component({
   selector: 'app-map-section',
@@ -7,16 +12,32 @@ import {Component, OnInit, ViewChild} from '@angular/core';
   styleUrls: ['./map-section.component.scss']
 })
 export class MapSectionComponent implements OnInit {
-  constructor() { }
-  lat: number = 51.678418;
-  lng: number = 7.809007;
-  ngOnInit() {
-    // let options = {
-    //   center: {lat: 1234.1234, lng: 1234.1234},
-    //   scrollwheel: true,
-    //   zoom: 8
-    // };
-    // this.googleMapsService.initMap(this.gmapElement, options);
+  @ViewChild('AgmMap') agmMap: AgmMap;
+  lat: number = 54.5260;
+  lng: number = 15.2551;
+  cities: Array<any>;
+  imgUrl = 'http://openweathermap.org/img/w/';
+  
+  constructor(private paginationService: PaginationService) {
   }
-
+  
+  ngOnInit() {
+    this.paginationService.getItems().subscribe(
+      data => {
+        this.cities = data;
+        this.setMapCenter();
+      });
+  }
+  
+  setMapCenter() {
+    this.agmMap.mapReady.subscribe(
+      map => {
+        const bounds: LatLngBounds = new google.maps.LatLngBounds();
+        this.cities.forEach(
+          city => bounds.extend(new google.maps.LatLng(city.coord.Lat, city.coord.Lon))
+        );
+        map.fitBounds(bounds);
+      }
+    );
+  }
 }

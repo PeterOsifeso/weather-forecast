@@ -9,7 +9,6 @@ import {P} from '@angular/core/src/render3';
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
-  @Input() noOfPages: number;
   @Input() startPage: number;
   activePage: number;
   pages = [];
@@ -17,7 +16,7 @@ export class PaginationComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.pages.length = this.noOfPages;
+    this.pages.length = this.paginationService.getNoOfPages();
     this.activePage = this.startPage;
   }
   selectPage(pageNo) {

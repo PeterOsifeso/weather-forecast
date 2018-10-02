@@ -34,7 +34,7 @@ export class OpenWeatherService {
   }
 
   getEuropeForecast(): Observable<any> {
-    const europeBbox = '-31.2660,27.6363,39.8693,81.0088';
+    const europeBbox = '-19.160156,37.020098,37.792969,68.592487';
     const params = {
       bbox: europeBbox,
       appId: OPEN_WEATHER_API_CONFIG.API_KEY

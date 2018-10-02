@@ -1,4 +1,4 @@
-<section class="browse-section-container">
+<section class="browse-section-container" id="browse">
   <main class="browse-section">
     <br>
     <h3 class="section-header">Browse City</h3>
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="pagination" *ngIf="paginationService.selectedPageContent">
-      <app-pagination [noOfPages]="noOfPages" [startPage]="startPage"></app-pagination>
+      <app-pagination [startPage]="startPage"></app-pagination>
     </div>
   </main>
 </section>

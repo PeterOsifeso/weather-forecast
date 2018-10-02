@@ -11,6 +11,10 @@ import { WeatherCardComponent } from './browse-section/weather-card/weather-card
 import { PaginationComponent } from './browse-section/pagination/pagination.component';
 import { MapSectionComponent } from './map-section/map-section.component';
 import {AgmCoreModule} from '@agm/core';
+import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
+import { RouterModule} from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -18,9 +22,11 @@ import {AgmCoreModule} from '@agm/core';
     SharedModule,
     ReactiveFormsModule,
     WeatherWidgetModule,
-    AgmCoreModule
+    AgmCoreModule,
+    AgmSnazzyInfoWindowModule,
+    RouterModule
   ],
-  declarations: [HeaderSectionComponent, NavBarComponent, SearchSectionComponent, BrowseSectionComponent, WeatherCardComponent, PaginationComponent, MapSectionComponent],
-  exports: [HeaderSectionComponent, SearchSectionComponent, WeatherWidgetModule, BrowseSectionComponent, MapSectionComponent]
+  declarations: [HeaderSectionComponent, NavBarComponent, SearchSectionComponent, BrowseSectionComponent, WeatherCardComponent, PaginationComponent, MapSectionComponent, ContactComponent, FooterComponent],
+  exports: [HeaderSectionComponent, SearchSectionComponent, WeatherWidgetModule, BrowseSectionComponent, MapSectionComponent, FooterComponent]
 })
 export class CoreModule { }
