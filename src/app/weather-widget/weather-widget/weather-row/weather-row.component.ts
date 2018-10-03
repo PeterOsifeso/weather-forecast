@@ -10,13 +10,16 @@ export class WeatherRowComponent implements OnInit {
   @Input() isActive;
   @Input() day: Forecast;
   @Output() active: EventEmitter<Forecast> = new EventEmitter<Forecast>();
-  constructor() { }
-
+  
+  constructor() {
+  }
+  
   ngOnInit() {
   }
+  
   onRowClick() {
     this.active.emit(this.day);
     // console.log('day clicked is ', this.day);
   }
-
+  
 }

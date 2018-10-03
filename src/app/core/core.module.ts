@@ -15,7 +15,7 @@ import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
 import {RouterModule} from '@angular/router';
 import {ContactComponent} from './contact/contact.component';
 import {FooterComponent} from './footer/footer.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({

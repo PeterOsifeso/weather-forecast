@@ -12,6 +12,7 @@ export class PaginationComponent implements OnInit {
   @Input() readonly startPage: number;
   activePage: number;
   pages = [];
+  
   constructor(private paginationService: PaginationService) {
   }
   
@@ -19,12 +20,15 @@ export class PaginationComponent implements OnInit {
     this.pages.length = this.paginationService.getNoOfPages();
     this.activePage = this.startPage;
   }
+  
   selectPage(pageNo) {
     this.activePage = this.paginationService.goToSelectedPage(pageNo);
   }
+  
   goToPrevious() {
-    this.activePage = this.paginationService.goToPreviousPage()
+    this.activePage = this.paginationService.goToPreviousPage();
   }
+  
   goToNext() {
     this.activePage = this.paginationService.goToNextPage();
   }

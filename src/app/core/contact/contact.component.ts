@@ -83,7 +83,7 @@ export class ContactComponent implements OnInit {
     }
   }
   
-  submitForm(form): void{
+  submitForm(form): void {
     console.log('Submit form tpo back end', form);
   }
 }

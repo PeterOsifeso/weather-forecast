@@ -12,6 +12,7 @@ import {WeatherWidgetService} from '../../services/weather-widget.service';
 export class BrowseSectionComponent implements OnInit {
   noOfPages: number;
   startPage: number;
+  
   constructor(public weatherService: WeatherWidgetService, public paginationService: PaginationService, private openWeatherService: OpenWeatherService) {
   }
   

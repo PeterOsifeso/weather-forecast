@@ -9,9 +9,11 @@ import {Forecast} from '../../../shared/models/weather-forecast';
 export class WeatherCentreComponent implements OnInit {
   @Input() cityName: string;
   @Input() activeDay: Array<Forecast>;
-  constructor() { }
-
+  
+  constructor() {
+  }
+  
   ngOnInit() {
   }
-
+  
 }

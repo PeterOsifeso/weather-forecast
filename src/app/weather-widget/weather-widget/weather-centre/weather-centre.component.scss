@@ -5,7 +5,9 @@
   position: absolute;
   top: 15px;
   right: 15px;
+  text-shadow: 1px 1px 2px black;
 }
+
 .bottom-time-and-temp {
   box-sizing: border-box;
   padding: 20px;
@@ -22,6 +24,7 @@
   bottom: 0;
   font-size: $jumbo-txt;
 }
+
 .bottom-time {
   font-size: $large-text;
 }
@@ -33,13 +36,13 @@
   left: 15px;
   right: 15px;
 }
+
 .weather-center {
   width: 100%;
-  //position: relative;
 }
 
 @media only screen and (max-width: 949px) and (min-width: 650px) {
-  .bottom-temp  {
+  .bottom-temp {
     bottom: 30px;
     right: 0;
   }
