@@ -2,7 +2,7 @@
   <div class="weather-row-content">
     <div class="weather-row-description">{{day[0].weather[0].main}}</div>
     <div>
-      <span class="weather-row-temp">{{day[0].main.temp_max | kelvinToCelcius}}</span>
+      <span class="weather-row-temp">{{day[0].main.temp_max | number: '.0-0'}}°C</span>
       <span class="weather-row-date">{{day[0].dt | utcDateToRegular: '.'}}</span>
     </div>
   </div>

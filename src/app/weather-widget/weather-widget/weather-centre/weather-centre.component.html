@@ -1,3 +1,4 @@
+<script src="../../../core/browse-section/weather-card/weather-card.component.ts"></script>
 <div class="weather-center">
   <div class="city-name">
     {{cityName}}
@@ -10,7 +11,7 @@
       {{activeDay[0].dt_txt.split(' ')[0] | date: 'EEEE, MMMM d, y'}}
     </div>
     <span class="bottom-temp">
-    {{activeDay[0].main.temp_max | kelvinToCelcius}}
+    {{activeDay[0].main.temp_max | number: '.0-0'}} °C
   </span>
   </div>
 </div>

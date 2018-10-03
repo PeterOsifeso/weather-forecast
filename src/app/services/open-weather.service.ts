@@ -28,7 +28,8 @@ export class OpenWeatherService {
   getCityForecast(cityName: string): Observable<WeatherForecast> {
     const params = {
       q: cityName,
-      appId: OPEN_WEATHER_API_CONFIG.API_KEY
+      appId: OPEN_WEATHER_API_CONFIG.API_KEY,
+      units: 'metric'
     };
     return this.http.get(this.cityForecastApiUrl, {params}).pipe(map((res: WeatherForecast) => res));
   }
@@ -37,7 +38,8 @@ export class OpenWeatherService {
     const europeBbox = '-19.160156,37.020098,37.792969,68.592487';
     const params = {
       bbox: europeBbox,
-      appId: OPEN_WEATHER_API_CONFIG.API_KEY
+      appId: OPEN_WEATHER_API_CONFIG.API_KEY,
+      units: 'metric'
     };
     return this.http.get(this.severalForecastApiUrl, {params}).pipe(map((res: WeatherForecast) => res));
   }

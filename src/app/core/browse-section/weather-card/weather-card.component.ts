@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Forecast} from '../../../shared/models/weather-forecast';
+import {Forecast, WeatherForecast} from '../../../shared/models/weather-forecast';
 
 @Component({
   selector: 'app-weather-card',
@@ -8,7 +8,7 @@ import {Forecast} from '../../../shared/models/weather-forecast';
 })
 export class WeatherCardComponent implements OnInit {
   @Input() readonly cityWeather: Forecast;
-  @Input()readonly activeWeather?: Forecast;
+  @Input() readonly activeWeather?: WeatherForecast;
   @Output() readonly cardSelect: EventEmitter<Forecast> = new EventEmitter<Forecast>();
   imgUrl = 'http://openweathermap.org/img/w/';
   

@@ -5,8 +5,8 @@
     <br>
     <div class="weather-cards-container">
       <div class="city-weather-cards">
-        <div class="city-weather-card" *ngFor="let cityWeather of paginationService.selectedPageContent">
-          <app-weather-card [activeWeather]="weatherService.cityWeatherForecast" [cityWeather]="cityWeather" (cardSelect)="onWeatherCardSelect($event)"></app-weather-card>
+        <div class="city-weather-card" *ngFor="let cityWeather of paginationService.getSelectedPageContent()">
+          <app-weather-card [activeWeather]="weatherService.getCityWeatherForecast()" [cityWeather]="cityWeather" (cardSelect)="onWeatherCardSelect($event)"></app-weather-card>
         </div>
       </div>
     </div>

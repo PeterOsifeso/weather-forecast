@@ -4,6 +4,7 @@ button {
   height: 40px;
   border-color: lightgray;
   outline: none;
+  cursor: pointer;
 }
 button:not(.previous-button) {
   border-left: none;

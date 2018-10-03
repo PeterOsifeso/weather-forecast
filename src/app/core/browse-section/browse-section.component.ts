@@ -12,28 +12,22 @@ import {WeatherWidgetService} from '../../services/weather-widget.service';
 export class BrowseSectionComponent implements OnInit {
   noOfPages: number;
   startPage: number;
-  
-  constructor(private weatherService: WeatherWidgetService, public paginationService: PaginationService, private openWeatherService: OpenWeatherService) {
+  constructor(public weatherService: WeatherWidgetService, public paginationService: PaginationService, private openWeatherService: OpenWeatherService) {
   }
   
   ngOnInit() {
     this.startPage = 1;
     this.openWeatherService.getEuropeForecast().subscribe(
       data => {
-        // console.log(data.list);
         this.noOfPages = this.paginationService.setItems(data.list);
         this.paginationService.goToSelectedPage(this.startPage);
       }
     );
-    
   }
   
   onWeatherCardSelect(city) {
     this.openWeatherService.getCityForecast(city.name).subscribe((data: WeatherForecast) => {
       this.weatherService.setCityWeatherForecast(data);
-    }, err => {
-      console.log('An errror occurred ', err);
-      // TODO - display some error message to user
     });
   }
   

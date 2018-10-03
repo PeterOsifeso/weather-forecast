@@ -15,7 +15,7 @@
       </ng-template>
 
       <span class="right">
-        {{forecast.main.temp | kelvinToCelcius}}
+        {{forecast.main.temp | number: '.0-0'}}°C
       </span>
   </div>
 </div>

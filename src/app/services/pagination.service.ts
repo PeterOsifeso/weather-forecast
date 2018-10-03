@@ -61,4 +61,7 @@ export class PaginationService {
     this.currentPage = pageNo;
     return this.currentPage;
   }
+  getSelectedPageContent() {
+    return this.selectedPageContent;
+  }
 }

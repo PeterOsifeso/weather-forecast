@@ -7,6 +7,6 @@ export class UtcDateToRegularPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
     const date = new Date( value * 1000);
-    return date.toLocaleDateString('en-US').split('/').join(args);
+    return date.toLocaleDateString('en-GB').split('/').join(args);
   }
 }

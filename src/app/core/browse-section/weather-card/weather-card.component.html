@@ -4,6 +4,6 @@
     <h3 class="city-name">{{cityWeather.name}}</h3>
     <p>{{cityWeather.main.temp}}°C</p>
     <p>humidity {{cityWeather.main.humidity}}%</p>
-    <p>wind {{cityWeather.wind.speed}}Km/h</p>
+    <p>wind {{cityWeather.wind.speed * 3.6 | number: '.0-2' }}Km/h</p>
   </div>
 </div>

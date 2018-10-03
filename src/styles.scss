@@ -39,6 +39,17 @@ html, body, section, h3, footer, p {
 .success-message {
   color: green;
 }
+
+/* No highlighting */
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
 //@media only screen and (max-width: 650px) {
 //  body {
 //    width: 90%;
