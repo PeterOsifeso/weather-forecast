@@ -9,7 +9,7 @@ import {P} from '@angular/core/src/render3';
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
-  @Input() startPage: number;
+  @Input() readonly startPage: number;
   activePage: number;
   pages = [];
   constructor(private paginationService: PaginationService) {

@@ -11,24 +11,24 @@ import {WeatherWidgetService} from '../../services/weather-widget.service';
 })
 export class SearchSectionComponent implements OnInit {
   form: FormGroup;
+  searchError: string;
   
-  // cityWeatherForecast: WeatherForecast;
   constructor(private weatherService: WeatherWidgetService, private openWeatherService: OpenWeatherService) {
   }
   
-  ngOnInit() {
+  ngOnInit(): void {
     this.form = new FormGroup({
       city: new FormControl('New York', [Validators.required, Validators.minLength(2)])
     });
     this.searchCity(this.form.getRawValue().city);
   }
   
-  searchCity(value) {
+  searchCity(value): void {
     this.openWeatherService.getCityForecast(value).subscribe((data: WeatherForecast) => {
+      this.searchError = null;
       this.weatherService.setCityWeatherForecast(data);
     }, err => {
-      console.log('An errror occurred ', err);
-      // TODO - display some error message to user
+      this.searchError = this.form.getRawValue().city + ' ' + err.error.message;
     });
   }
   

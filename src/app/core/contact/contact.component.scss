@@ -1,0 +1,140 @@
+@import "src/styles.scss";
+
+$input-bg: #d3d3d385;
+
+.contact-section {
+  max-width: 1200px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.left-section, .right-section {
+  width: 50%;
+}
+
+.right-section {
+  box-sizing: border-box;
+  padding: 0 30px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.form-group {
+  display: flex;
+  justify-content: center;
+}
+
+.form-group:not(:first-child) {
+  margin-top: 20px;
+}
+
+.form-group input, .form-group textarea {
+  background: $input-bg;
+  padding: 15px;
+  width: 343px;
+  border: 0;
+  outline: none;
+}
+
+.form-group textarea {
+  width: 393px;
+  max-width: 393px;
+  height: 140px;
+  min-width: 202px;
+}
+
+fa-icon {
+  background: $input-bg;
+  padding: 2%;
+  min-width: 30px;
+  width: 5%;
+  color: grey;
+}
+
+.form-group input[placeholder], .form-group textarea {
+  color: #000;
+  font-size: $small-text;
+}
+
+form button, input[type="submit"] {
+  width: 100px;
+  min-width: 90px;
+  min-height: 50px;
+  background: #3d9ed2;
+  border: none;
+  color: $white-text;
+  font-size: $small-text;
+  margin-bottom: 8px;
+}
+
+input[type="submit"][disabled] {
+  background: #6bacd2 !important;
+  color: $input-bg !important;
+}
+
+.upload-button {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hide the ugly default file upload input */
+.upload-button input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.upload-bar-container {
+  width: 80%;
+  background: $input-bg;
+}
+
+.upload-bar {
+  height: 30px;
+  line-height: 30px;
+  color: $white-text;
+  background: #4AA2D1;
+}
+
+.submit-button {
+  position: absolute;
+  bottom: 0;
+}
+
+app-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.success-message {
+  height: 30px;
+  line-height: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .left-section, .right-section {
+    width: 100%;
+  }
+  .right-section {
+    padding: 0;
+    text-align: center;
+  }
+  .upload-button {
+    margin-top: 20px;
+    margin-bottom: 20px !important;
+  }
+  .submit-button {
+    position: relative;
+  }
+  app-footer {
+    position: relative;
+  }
+}

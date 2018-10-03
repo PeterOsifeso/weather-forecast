@@ -7,9 +7,11 @@ import {Menu} from '../../../shared/models/menu';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  @Input() menuItems: Menu;
-  constructor() { }
-
+  @Input() readonly menuItems: Menu;
+  
+  constructor() {
+  }
+  
   ngOnInit() {
   }
 }

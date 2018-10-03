@@ -25,19 +25,19 @@ form {
   margin-bottom: 8px;
 }
 .form-group input {
-  width: 98.5%;
+  width: 97.9%;
   height: 40px;
   min-height: 40px;
+  padding: 10px;
   background: #3a3d40;
-  border: none;
-  padding: 5px;
   font-size: $normal-text;
   color: $white-text;
   outline-color: white;
+  outline: none;
 }
 button[disabled] {
-  background: #6bacd2!important;
-  color: lightgray!important;
+  background: #6bacd2 !important;
+  color: lightgray !important;
 }
 form button {
   width: 15%;

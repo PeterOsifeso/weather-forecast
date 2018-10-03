@@ -21,10 +21,11 @@
                               [shadow]="false"
                               [placement]="'right'"
                               [padding]="'0'"
-                              [backgroundColor]="'transparent'">
+                              [borderRadius]="'5px'"
+                              [backgroundColor]="'#fbfcfd75'">
         <ng-template>
           <img src="{{imgUrl + city.weather[0].icon + '.png'}}">
-          <p class="text-center temp-text"><strong>{{city.main.temp}}°C</strong></p>
+          <p class="text-center temp-text">{{city.main.temp}}°C</p>
         </ng-template>
       </agm-snazzy-info-window>
     </agm-map>

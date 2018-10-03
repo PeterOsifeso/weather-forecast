@@ -29,6 +29,16 @@ html, body, section, h3, footer, p {
 .text-center {
   text-align: center;
 }
+.form-group input {
+  border: none;
+  padding: 5px;
+}
+.error-message {
+  color: red;
+}
+.success-message {
+  color: green;
+}
 //@media only screen and (max-width: 650px) {
 //  body {
 //    width: 90%;

@@ -1,3 +1,40 @@
 <app-nav-bar [menuItems]="menuItems"></app-nav-bar>
-
+<section class="contact-section">
+  <br>
+  <h3 class="section-header">Contact</h3>
+  <br>
+  <form [formGroup]="contactForm">
+    <div class="left-section">
+      <div class="form-group">
+        <fa-icon [icon]="faUser" [size]="'2x'"></fa-icon>
+        <input class="" formControlName="name" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <fa-icon [icon]="faEnvelope" [size]="'2x'"></fa-icon>
+        <input formControlName="email" class="" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <textarea formControlName="message" placeholder="Message"></textarea>
+      </div>
+    </div>
+    <div class="right-section">
+       <button class="upload-button"> Upload
+         <input type="file" (change)="uploadFile($event)">
+       </button>
+      <div class="upload-bar-container" *ngIf="isUploading" [@leaveAnimation]>
+        <div class="upload-bar text-center" [style.width]="fileUploadPercentage">{{fileUploadPercentage}}</div>
+      </div>
+      <div class="success-message" *ngIf="isUploaded" [@enterAnimation]>
+        Your file uploaded successfully
+      </div>
+      <div class="error-message" *ngIf="uploadError">
+        Error - {{uploadError}}
+      </div>
+      <br>
+      <div>
+        <input type="submit" class="submit-button" (click)="submitForm(contactForm.getRawValue())"  [disabled]="contactForm.invalid" value="SEND">
+      </div>
+    </div>
+  </form>
+</section>
 <app-footer [showScrollToTop]="false"></app-footer>

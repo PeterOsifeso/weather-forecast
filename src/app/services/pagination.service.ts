@@ -25,20 +25,20 @@ export class PaginationService {
     return this.noOfPages;
   }
   
-  getItems(): any {
+  getItems(): Observable<any> {
     return this.observable$;
   }
   
-  calcNoOfPages(items: Array<any>) {
+  calcNoOfPages(items: Array<any>): void {
     this.noOfPages = Math.floor(items.length / this.noOfItemsPerPage);
     this.currentPage = 1;
   }
   
-  getNoOfPages() {
+  getNoOfPages(): number {
     return this.noOfPages;
   }
   
-  goToNextPage() {
+  goToNextPage(): number {
     if (this.currentPage < this.noOfPages) {
       this.currentPage++;
       this.selectedPageContent = this.items.slice((this.currentPage) * this.noOfItemsPerPage, (this.currentPage + 1) * this.noOfItemsPerPage);
@@ -47,9 +47,8 @@ export class PaginationService {
     return this.currentPage;
   }
   
-  goToPreviousPage() {
+  goToPreviousPage(): number {
     if (this.currentPage > 1) {
-      console.log('going to previous page');
       this.currentPage--;
       this.selectedPageContent = this.items.slice((this.currentPage - 1) * this.noOfItemsPerPage, this.currentPage * this.noOfItemsPerPage);
       return this.currentPage;
@@ -57,8 +56,7 @@ export class PaginationService {
     return this.currentPage;
   }
   
-  goToSelectedPage(pageNo: number) {
-    // console.log('Going to page ', pageNo);
+  goToSelectedPage(pageNo: number): number {
     this.selectedPageContent = this.items.slice(pageNo * this.noOfItemsPerPage, (pageNo + 1) * this.noOfItemsPerPage);
     this.currentPage = pageNo;
     return this.currentPage;

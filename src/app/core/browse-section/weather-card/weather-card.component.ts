@@ -7,9 +7,9 @@ import {Forecast} from '../../../shared/models/weather-forecast';
   styleUrls: ['./weather-card.component.scss']
 })
 export class WeatherCardComponent implements OnInit {
-  @Input() cityWeather: Forecast;
-  @Input() activeWeather?: Forecast;
-  @Output() cardSelect: EventEmitter<Forecast> = new EventEmitter<Forecast>();
+  @Input() readonly cityWeather: Forecast;
+  @Input()readonly activeWeather?: Forecast;
+  @Output() readonly cardSelect: EventEmitter<Forecast> = new EventEmitter<Forecast>();
   imgUrl = 'http://openweathermap.org/img/w/';
   
   constructor() {
