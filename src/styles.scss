@@ -40,6 +40,18 @@ html, body, section, h3, footer, p {
   color: green;
 }
 
+.loading {
+  width: 100%;
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+}
+.loading-img {
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+}
+
 /* No highlighting */
 body {
   -webkit-touch-callout: none;
