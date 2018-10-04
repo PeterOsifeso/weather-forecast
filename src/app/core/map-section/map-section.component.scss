@@ -21,6 +21,12 @@
 agm-map {
   height: 400px;
 }
+.overlay-content {
+  background: #ffffff73;
+  border-radius: 8px;
+  font-weight: bolder;
+  font-size: $normal-text;
+}
 @media screen and (max-width: 600px) {
   .map-section-container {
     height: 350px;

@@ -75,6 +75,11 @@ export class ContactComponent implements OnInit {
           this.fileUploadPercentage = Math.ceil(data.loaded / data.total * 100) + '%';
         }
       };
+      reader.onerror = () => {
+        this.isUploading = false;
+        this.isUploaded = true;
+        this.uploadError = reader.error.message;
+      };
       reader.onload = () => {
         this.contactForm.get('file').setValue(file);
         this.isUploading = false;

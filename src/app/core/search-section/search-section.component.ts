@@ -1,17 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {OpenWeatherService} from '../../services/open-weather.service';
 import {Forecast, WeatherForecast} from '../../shared/models/weather-forecast';
 import {WeatherWidgetService} from '../../services/weather-widget.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-search-section',
   templateUrl: './search-section.component.html',
   styleUrls: ['./search-section.component.scss']
 })
-export class SearchSectionComponent implements OnInit {
+export class SearchSectionComponent implements OnInit, OnDestroy {
   form: FormGroup;
   searchError: string;
+  cityForecastSub: Subscription;
   
   constructor(private weatherService: WeatherWidgetService, private openWeatherService: OpenWeatherService) {
   }
@@ -24,7 +26,7 @@ export class SearchSectionComponent implements OnInit {
   }
   
   searchCity(value): void {
-    this.openWeatherService.getCityForecast(value).subscribe((data: WeatherForecast) => {
+    this.cityForecastSub = this.openWeatherService.getCityForecast(value).subscribe((data: WeatherForecast) => {
       this.searchError = null;
       this.weatherService.setCityWeatherForecast(data);
     }, err => {
@@ -32,4 +34,7 @@ export class SearchSectionComponent implements OnInit {
     });
   }
   
+  ngOnDestroy() {
+    this.cityForecastSub.unsubscribe();
+  }
 }

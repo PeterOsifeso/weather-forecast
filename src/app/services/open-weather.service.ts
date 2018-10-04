@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {OPEN_WEATHER_API_CONFIG} from '../../environments/environment';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {debounceTime, map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {WeatherInfo} from '../shared/models/weather-info';
 import {WeatherForecast} from '../shared/models/weather-forecast';
@@ -22,7 +22,7 @@ export class OpenWeatherService {
       q: cityName,
       appId: OPEN_WEATHER_API_CONFIG.API_KEY
     };
-    return this.http.get(this.cityWeatherApiUrl, {params}).pipe(map((res: WeatherInfo) => res));
+    return this.http.get<WeatherInfo>(this.cityWeatherApiUrl, {params});
   }
   
   getCityForecast(cityName: string): Observable<WeatherForecast> {
@@ -31,7 +31,7 @@ export class OpenWeatherService {
       appId: OPEN_WEATHER_API_CONFIG.API_KEY,
       units: 'metric'
     };
-    return this.http.get(this.cityForecastApiUrl, {params}).pipe(map((res: WeatherForecast) => res));
+    return this.http.get<WeatherForecast>(this.cityForecastApiUrl, {params});
   }
   
   getEuropeForecast(): Observable<WeatherForecast> {
@@ -41,6 +41,14 @@ export class OpenWeatherService {
       appId: OPEN_WEATHER_API_CONFIG.API_KEY,
       units: 'metric'
     };
-    return this.http.get(this.severalForecastApiUrl, {params}).pipe(map((res: WeatherForecast) => res));
+    return this.http.get<WeatherForecast>(this.severalForecastApiUrl, {params});
+  }
+  getBboxForecast(bbox): Observable<WeatherForecast> {
+    const params = {
+      bbox: bbox,
+      units: 'metric',
+      appId: OPEN_WEATHER_API_CONFIG.API_KEY
+    };
+    return this.http.get<WeatherForecast>(this.severalForecastApiUrl, {params});
   }
 }
