@@ -1,5 +1,4 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {PaginationService} from '../../services/pagination.service';
 import {OpenWeatherService} from '../../services/open-weather.service';
 
 
@@ -22,7 +21,7 @@ export class MapSectionComponent implements OnInit, OnDestroy {
   bBox: any;
   zoom = 8;
   
-  constructor(private paginationService: PaginationService, private openWeatherService: OpenWeatherService) {
+  constructor(private openWeatherService: OpenWeatherService) {
   }
   
   ngOnInit() {

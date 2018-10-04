@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {OpenWeatherService} from '../../services/open-weather.service';
-import { WeatherForecast} from '../../shared/models/weather-forecast';
-import {PaginationService} from '../../services/pagination.service';
+import {Forecast, WeatherForecast} from '../../shared/models/weather-forecast';
 import {WeatherWidgetService} from '../../services/weather-widget.service';
 import {Subscription} from 'rxjs';
 
@@ -11,19 +10,19 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./browse-section.component.scss']
 })
 export class BrowseSectionComponent implements OnInit, OnDestroy {
-  noOfPages: number;
-  startPage: number;
+  currentPage: number = 1;
   europeForecastSub: Subscription;
   cityForecastSub: Subscription;
-  constructor(public weatherService: WeatherWidgetService, public paginationService: PaginationService, private openWeatherService: OpenWeatherService) {
+  forecasts: Array<Forecast>;
+  
+  constructor(public weatherService: WeatherWidgetService, private openWeatherService: OpenWeatherService) {
   }
   
   ngOnInit() {
-    this.startPage = 1;
-    this.europeForecastSub = this.openWeatherService.getEuropeForecast().subscribe(
+    const europeBbox = '-19.160156,37.020098,37.792969,68.592487';
+    this.europeForecastSub = this.openWeatherService.getBboxForecast(europeBbox).subscribe(
       data => {
-        this.noOfPages = this.paginationService.setItems(data.list);
-        this.paginationService.goToSelectedPage(this.startPage);
+        this.forecasts = data.list;
       }
     );
   }

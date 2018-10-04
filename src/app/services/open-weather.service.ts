@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {OPEN_WEATHER_API_CONFIG} from '../../environments/environment';
 import {Observable} from 'rxjs';
-import {debounceTime, map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {WeatherInfo} from '../shared/models/weather-info';
 import {WeatherForecast} from '../shared/models/weather-forecast';
@@ -14,6 +13,7 @@ export class OpenWeatherService {
   private cityForecastApiUrl = 'https://api.openweathermap.org/data/2.5/forecast';
   private bBoxForecastApiUrl = 'http://api.openweathermap.org/data/2.5/box/city';
   private pollutionApiUrl = 'http://api.openweathermap.org/pollution/v1/co/';
+  
   constructor(private http: HttpClient) {
   }
   
@@ -43,6 +43,7 @@ export class OpenWeatherService {
     };
     return this.http.get<WeatherForecast>(this.bBoxForecastApiUrl, {params});
   }
+  
   getBboxForecast(bbox): Observable<WeatherForecast> {
     const params = {
       bbox: bbox,
@@ -51,12 +52,11 @@ export class OpenWeatherService {
     };
     return this.http.get<WeatherForecast>(this.bBoxForecastApiUrl, {params});
   }
+  
   getPollution(lat: number, lon: number, dateTime: Date): Observable<any> {
     const date = new Date(dateTime.toUTCString());
     this.pollutionApiUrl += `${this.pollutionApiUrl}${lat},${lon}/${date.toISOString()}.json`;
     const params = {
-      // location: `${lat},${lon}`,
-      // datetime: date.toISOString(),
       appid: OPEN_WEATHER_API_CONFIG.API_KEY,
     };
     return this.http.get(this.pollutionApiUrl, {params});

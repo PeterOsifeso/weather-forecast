@@ -7,14 +7,12 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {WeatherWidgetModule} from '../weather-widget/weather-widget.module';
 import {BrowseSectionComponent} from './browse-section/browse-section.component';
 import {WeatherCardComponent} from './browse-section/weather-card/weather-card.component';
-import {PaginationComponent} from './browse-section/pagination/pagination.component';
 import {MapSectionComponent} from './map-section/map-section.component';
 import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
 import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
-import {FooterComponent} from '../shared/components/footer/footer.component';
-
 import {AgmOverlays} from 'agm-overlays';
 import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -25,10 +23,11 @@ import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
     AgmCoreModule,
     AgmSnazzyInfoWindowModule,
     AgmOverlays,
-    AgmJsMarkerClustererModule
+    AgmJsMarkerClustererModule,
+    NgxPaginationModule
   ],
-  declarations: [HeaderSectionComponent, SearchSectionComponent, BrowseSectionComponent, WeatherCardComponent, PaginationComponent, MapSectionComponent],
-  exports: [HeaderSectionComponent, SearchSectionComponent, WeatherWidgetModule, BrowseSectionComponent, MapSectionComponent, FooterComponent],
+  declarations: [HeaderSectionComponent, SearchSectionComponent, BrowseSectionComponent, WeatherCardComponent, MapSectionComponent],
+  exports: [HeaderSectionComponent, SearchSectionComponent, WeatherWidgetModule, BrowseSectionComponent, MapSectionComponent],
   providers: [GoogleMapsAPIWrapper]
 })
 export class CoreModule {
