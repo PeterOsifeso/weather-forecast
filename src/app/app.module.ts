@@ -1,4 +1,3 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
@@ -9,15 +8,14 @@ import {PaginationService} from './services/pagination.service';
 import {AgmCoreModule} from '@agm/core';
 import {GOOGLE_MAPS_API_CONFIG} from '../environments/environment';
 import {RoutingModule} from './routing/routing.module';
-import {HomeComponent} from './home/home.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
     AgmCoreModule.forRoot({

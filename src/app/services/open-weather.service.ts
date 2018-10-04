@@ -12,8 +12,8 @@ import {WeatherForecast} from '../shared/models/weather-forecast';
 export class OpenWeatherService {
   private cityWeatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather';
   private cityForecastApiUrl = 'https://api.openweathermap.org/data/2.5/forecast';
-  private severalForecastApiUrl = 'http://api.openweathermap.org/data/2.5/box/city';
-  
+  private bBoxForecastApiUrl = 'http://api.openweathermap.org/data/2.5/box/city';
+  private pollutionApiUrl = 'http://api.openweathermap.org/pollution/v1/co/';
   constructor(private http: HttpClient) {
   }
   
@@ -41,7 +41,7 @@ export class OpenWeatherService {
       appId: OPEN_WEATHER_API_CONFIG.API_KEY,
       units: 'metric'
     };
-    return this.http.get<WeatherForecast>(this.severalForecastApiUrl, {params});
+    return this.http.get<WeatherForecast>(this.bBoxForecastApiUrl, {params});
   }
   getBboxForecast(bbox): Observable<WeatherForecast> {
     const params = {
@@ -49,6 +49,16 @@ export class OpenWeatherService {
       units: 'metric',
       appId: OPEN_WEATHER_API_CONFIG.API_KEY
     };
-    return this.http.get<WeatherForecast>(this.severalForecastApiUrl, {params});
+    return this.http.get<WeatherForecast>(this.bBoxForecastApiUrl, {params});
+  }
+  getPollution(lat: number, lon: number, dateTime: Date): Observable<any> {
+    const date = new Date(dateTime.toUTCString());
+    this.pollutionApiUrl += `${this.pollutionApiUrl}${lat},${lon}/${date.toISOString()}.json`;
+    const params = {
+      // location: `${lat},${lon}`,
+      // datetime: date.toISOString(),
+      appid: OPEN_WEATHER_API_CONFIG.API_KEY,
+    };
+    return this.http.get(this.pollutionApiUrl, {params});
   }
 }

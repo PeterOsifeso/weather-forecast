@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HeaderSectionComponent} from './header-section/header-section.component';
-import {NavBarComponent} from './header-section/nav-bar/nav-bar.component';
 import {SharedModule} from '../shared/shared.module';
 import {SearchSectionComponent} from './search-section/search-section.component';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -12,11 +11,8 @@ import {PaginationComponent} from './browse-section/pagination/pagination.compon
 import {MapSectionComponent} from './map-section/map-section.component';
 import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
 import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
-import {RouterModule} from '@angular/router';
-import {ContactComponent} from './contact/contact.component';
-import {FooterComponent} from './footer/footer.component';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FooterComponent} from '../shared/components/footer/footer.component';
+
 import {AgmOverlays} from 'agm-overlays';
 import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
 
@@ -28,13 +24,10 @@ import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
     WeatherWidgetModule,
     AgmCoreModule,
     AgmSnazzyInfoWindowModule,
-    RouterModule,
-    FontAwesomeModule,
-    BrowserAnimationsModule,
     AgmOverlays,
     AgmJsMarkerClustererModule
   ],
-  declarations: [HeaderSectionComponent, NavBarComponent, SearchSectionComponent, BrowseSectionComponent, WeatherCardComponent, PaginationComponent, MapSectionComponent, ContactComponent, FooterComponent],
+  declarations: [HeaderSectionComponent, SearchSectionComponent, BrowseSectionComponent, WeatherCardComponent, PaginationComponent, MapSectionComponent],
   exports: [HeaderSectionComponent, SearchSectionComponent, WeatherWidgetModule, BrowseSectionComponent, MapSectionComponent, FooterComponent],
   providers: [GoogleMapsAPIWrapper]
 })

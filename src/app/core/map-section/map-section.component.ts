@@ -1,6 +1,4 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {WeatherWidgetService} from '../../services/weather-widget.service';
-import {WeatherForecast} from '../../shared/models/weather-forecast';
 import {PaginationService} from '../../services/pagination.service';
 import {OpenWeatherService} from '../../services/open-weather.service';
 
@@ -50,6 +48,7 @@ export class MapSectionComponent implements OnInit, OnDestroy {
       data => {
         if (data && data.list) {
           this.cities = data.list;
+          
         }
       }
     );
