@@ -37,9 +37,4 @@ describe('ContactRoutingModule', () => {
     expect(ContactComponent).toBeTruthy();
   });
   
-  // it('navigate to any other route should redirects you to " "', fakeAsync(() => {
-  //   router.navigate(['/home']);
-  //   tick();
-  //   expect(location.path()).toBe('/home');
-  // }));
 });
