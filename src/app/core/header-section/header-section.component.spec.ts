@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderSectionComponent } from './header-section.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('HeaderSectionComponent', () => {
   let component: HeaderSectionComponent;
@@ -8,7 +9,8 @@ describe('HeaderSectionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderSectionComponent ]
+      declarations: [ HeaderSectionComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

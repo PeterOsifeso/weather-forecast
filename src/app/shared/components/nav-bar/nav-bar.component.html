@@ -2,7 +2,14 @@
   <div class="topnav" #topNav>
     <a class="logo" [routerLink]="['/']">Forecast</a>
     <div class="menu-items">
-      <a class="menu-item" *ngFor="let menuItem of menuItems" [routerLink]="[menuItem.link]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [fragment]="menuItem.fragment" [appHamburgerMenu]= "topNav">{{menuItem.name}}</a>
+      <a class="menu-item"
+         *ngFor="let menuItem of menuItems"
+         [routerLink]="[menuItem.link]"
+         [fragment]="menuItem.fragment"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"
+         [appHamburgerMenu]= "topNav"
+      >{{menuItem.name}}</a>
       <a class="icon" [appHamburgerMenu]= "topNav">
         <i class="fa fa-bars"></i>
       </a>

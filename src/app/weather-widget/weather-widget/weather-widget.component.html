@@ -1,6 +1,6 @@
 <div class="weather-widget">
   <section class="weather-widget-section one">
-    <app-weather-row *ngFor="let day of filteredForecastDays;" [day]="day" [isActive]="day === activeDay" (active)="onDaySelect($event)"></app-weather-row>
+    <app-weather-row *ngFor="let day of filteredForecastDays;" [day]="day[0]" [isActive]="day === activeDay" (active)="onDaySelect($event)"></app-weather-row>
   </section>
 
   <section class="weather-widget-section two">

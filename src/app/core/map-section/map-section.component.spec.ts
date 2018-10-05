@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MapSectionComponent } from './map-section.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('MapSectionComponent', () => {
   let component: MapSectionComponent;
@@ -8,7 +10,9 @@ describe('MapSectionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MapSectionComponent ]
+      declarations: [ MapSectionComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   }));

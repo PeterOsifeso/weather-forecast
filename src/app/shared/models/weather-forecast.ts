@@ -3,7 +3,7 @@ export interface Forecast {
   dt: number;
   dt_txt: string;
   name?: string;
-  wind?: { speed: number};
+  wind?: { speed: number, deg: number};
   main: {
     temp: number,
     temp_min: number,
@@ -15,7 +15,7 @@ export interface Forecast {
     humidity: number
   };
   weather: Array<{id: number, main: string, description: string, icon: string}>;
-  times?: Array<Forecast>;
+  sys: {pod: string};
 }
 export interface WeatherForecast {
   city:{
@@ -23,10 +23,10 @@ export interface WeatherForecast {
     country: string,
     id: number,
     name: string,
-    population: number
+    population: number,
+    cod: string;
+    message: number;
+    cnt: number;
+    list: Array<Forecast>;
   };
-  cod: string;
-  message: number;
-  cnt: number;
-  list: Array<Forecast>;
 }

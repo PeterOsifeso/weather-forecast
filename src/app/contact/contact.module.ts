@@ -5,6 +5,7 @@ import {SharedModule} from '../shared/shared.module';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ContactRoutingModule} from './contact-routing.module';
+import {ImageUploaderService} from '../services/image-uploader.service';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import {ContactRoutingModule} from './contact-routing.module';
     FontAwesomeModule,
     ReactiveFormsModule
   ],
-  declarations: [ContactComponent]
+  declarations: [ContactComponent],
+  providers: [ImageUploaderService]
 })
 export class ContactModule { }

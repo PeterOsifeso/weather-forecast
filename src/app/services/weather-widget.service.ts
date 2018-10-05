@@ -18,7 +18,7 @@ export class WeatherWidgetService {
     return this.cityWeatherForecast;
   }
   
-  filterDates(weatherForecast): Array<Array<Forecast>> {
+  filterDates(weatherForecast): Array<Forecast[]> {
     const filteredForecastDays = [];
     let currentDate = weatherForecast.list[0].dt_txt.split(' ')[0];
     filteredForecastDays[0] = [];

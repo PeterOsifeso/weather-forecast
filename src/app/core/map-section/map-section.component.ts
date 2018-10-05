@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {OpenWeatherService} from '../../services/open-weather.service';
+import {BboxForecast} from '../../shared/models/bbox-forecast';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {OpenWeatherService} from '../../services/open-weather.service';
 export class MapSectionComponent implements OnInit, OnDestroy {
   lat: number = 55.304138;
   lng: number = 9.360352;
-  cities: Array<any>;
+  cities: Array<BboxForecast>;
   imgUrl = 'http://openweathermap.org/img/w/';
   bBoxSub: any;
   

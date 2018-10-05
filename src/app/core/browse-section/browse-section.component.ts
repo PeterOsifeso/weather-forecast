@@ -3,6 +3,7 @@ import {OpenWeatherService} from '../../services/open-weather.service';
 import {Forecast, WeatherForecast} from '../../shared/models/weather-forecast';
 import {WeatherWidgetService} from '../../services/weather-widget.service';
 import {Subscription} from 'rxjs';
+import {BboxForecast} from '../../shared/models/bbox-forecast';
 
 @Component({
   selector: 'app-browse-section',
@@ -13,7 +14,7 @@ export class BrowseSectionComponent implements OnInit, OnDestroy {
   currentPage: number = 1;
   europeForecastSub: Subscription;
   cityForecastSub: Subscription;
-  forecasts: Array<Forecast>;
+  forecasts: Array<BboxForecast>;
   
   constructor(public weatherService: WeatherWidgetService, private openWeatherService: OpenWeatherService) {
   }

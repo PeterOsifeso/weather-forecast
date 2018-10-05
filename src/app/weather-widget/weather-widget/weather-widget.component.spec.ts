@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WeatherWidgetComponent } from './weather-widget.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('WeatherWidgetComponent', () => {
   let component: WeatherWidgetComponent;
@@ -8,7 +9,8 @@ describe('WeatherWidgetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WeatherWidgetComponent ]
+      declarations: [ WeatherWidgetComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
@@ -16,7 +18,50 @@ describe('WeatherWidgetComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(WeatherWidgetComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+
+    component.cityWeatherForecast = {
+      city: {
+        id: 1851632,
+        name: "Shuzenji",
+        coord: {
+          lon: 138.933334, lat: 34.966671
+        },
+        country: "JP",
+        cod: "200",
+        message: 0.0045,
+        cnt: 38,
+        population: 100,
+        list: [{
+          dt: 1406106000,
+          main: {
+            temp: 298.77,
+            temp_min: 298.77,
+            temp_max: 298.774,
+            pressure: 1005.93,
+            sea_level: 1018.18,
+            grnd_level: 1005.93,
+            humidity: 87,
+            temp_kf: 0.26
+          },
+          weather: [{
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds", "icon": "04d"
+          }],
+          clouds: {"all": 88},
+          wind: {
+            speed: 5.71,
+            deg: 229.501
+          },
+          sys: {pod: "d"},
+          dt_txt: "2014-07-23 09:00:00"
+        }
+        ]
+      }
+    };
+  
+      component.filteredForecastDays = [];
+      fixture.detectChanges();
   });
 
   it('should create', () => {

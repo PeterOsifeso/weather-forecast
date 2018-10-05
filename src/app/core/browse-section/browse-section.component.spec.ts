@@ -1,16 +1,26 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BrowseSectionComponent } from './browse-section.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {PaginatePipe} from 'ngx-pagination';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {OpenWeatherService} from '../../services/open-weather.service';
+import {Observable} from 'rxjs';
 
 describe('BrowseSectionComponent', () => {
   let component: BrowseSectionComponent;
   let fixture: ComponentFixture<BrowseSectionComponent>;
+  let mockOpenWeather;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BrowseSectionComponent ]
+      declarations: [ BrowseSectionComponent, PaginatePipe ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [HttpClientTestingModule],
+      providers: [OpenWeatherService]
     })
     .compileComponents();
+    mockOpenWeather = TestBed.get(OpenWeatherService);
   }));
 
   beforeEach(() => {
@@ -20,6 +30,9 @@ describe('BrowseSectionComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    spyOn(mockOpenWeather, 'getBboxForecast').and.returnValue(Observable.create( observer => observer.next({})));
+    component.ngOnInit();
+    fixture.detectChanges();
+    expect(mockOpenWeather.getBboxForecast).toHaveBeenCalled();
   });
 });

@@ -3,6 +3,8 @@ import {Menu} from '../../shared/models/menu';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {faUser, faEnvelope} from '@fortawesome/free-regular-svg-icons';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {ImageUploaderService} from '../../services/image-uploader.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-contact',
@@ -37,8 +39,8 @@ export class ContactComponent implements OnInit {
   isUploading: boolean;
   isUploaded: boolean;
   uploadError: string;
-  
-  constructor() {
+  sub: Subscription;
+  constructor(private imageUploaderService: ImageUploaderService) {
   }
   
   ngOnInit(): void {
@@ -55,40 +57,28 @@ export class ContactComponent implements OnInit {
   }
   
   uploadFile(event): void {
-    let reader = new FileReader();
-    if (event.target.files && event.target.files.length) {
-      
-      const [file] = event.target.files;
-      if (file.size > 10 * 1024 * 1024) {
-        // file to large exceeds 10MB
-        this.uploadError = 'The file you selected is above 10MB';
-        this.isUploading = false;
-        this.isUploaded = false;
-        this.contactForm.get('file').setValue(null);
-        return;
-      }
-      this.uploadError = null;
-      reader.readAsDataURL(file);
-      reader.onprogress = (data) => {
-        this.isUploading = true;
-        if (data.lengthComputable) {
-          this.fileUploadPercentage = Math.ceil(data.loaded / data.total * 100) + '%';
+    this.uploadError = null;
+    this.sub = this.imageUploaderService.uploadFile(event).subscribe(
+      data => {
+        console.log('data', data);
+        if (data.progress && !data.isCompleted) {
+          this.isUploading = true;
+          this.fileUploadPercentage = data.progress;
+          this.uploadError = null;
+        } else {
+          this.isUploading = false;
+          this.isUploaded = true;
+          this.contactForm.get('file').setValue(data.file);
         }
-      };
-      reader.onerror = () => {
-        this.isUploading = false;
-        this.isUploaded = true;
-        this.uploadError = reader.error.message;
-      };
-      reader.onload = () => {
-        this.contactForm.get('file').setValue(file);
-        this.isUploading = false;
-        this.isUploaded = true;
-      };
-    }
+      }, err => {
+        this.uploadError = err.message;
+        this.isUploaded = false;
+        if(this.sub)
+          this.sub.unsubscribe();
+      });
   }
   
-  submitForm(form): void {
-    console.log('Submit form tpo back end', form);
+  submitForm(formValue): void {
+    console.log('Submit form to back end', formValue);
   }
 }

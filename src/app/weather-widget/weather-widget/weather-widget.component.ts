@@ -8,7 +8,8 @@ import {WeatherWidgetService} from '../../services/weather-widget.service';
   styleUrls: ['./weather-widget.component.scss'],
 })
 export class WeatherWidgetComponent implements OnChanges {
-  @Input() readonly cityWeatherForecast: WeatherForecast;
+  // @Input() readonly cityWeatherForecast: WeatherForecast;
+  @Input() cityWeatherForecast: WeatherForecast;
   filteredForecastDays: Array<Array<Forecast>>;
   activeDay: Array<Forecast>;
   

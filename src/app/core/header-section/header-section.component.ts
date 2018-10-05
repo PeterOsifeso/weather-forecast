@@ -14,7 +14,7 @@ export class HeaderSectionComponent implements OnInit {
   
   ngOnInit() {
     this.menuItems = [
-      {name: 'Home', link: '/', fragment: 'home'},
+      {name: 'Home', link: '/', fragment: ''},
       {name: 'Search', link: '/#search', fragment: 'search'},
       {name: 'Browse', link: '/#browse', fragment: 'browse'},
       {name: 'Map', link: '/#map', fragment: 'map'},
