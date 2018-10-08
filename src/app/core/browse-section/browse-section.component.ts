@@ -30,6 +30,7 @@ export class BrowseSectionComponent implements OnInit, OnDestroy {
   
   onWeatherCardSelect(city): void {
     this.cityForecastSub = this.openWeatherService.getCityForecast(city.name).subscribe((data: WeatherForecast) => {
+      this.weatherService.setCityWeatherForecast(data);
     });
   }
   
