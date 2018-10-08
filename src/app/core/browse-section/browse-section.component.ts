@@ -19,7 +19,7 @@ export class BrowseSectionComponent implements OnInit, OnDestroy {
   constructor(public weatherService: WeatherWidgetService, private openWeatherService: OpenWeatherService) {
   }
   
-  ngOnInit() {
+  ngOnInit(): void {
     const europeBbox = '-19.160156,37.020098,37.792969,68.592487';
     this.europeForecastSub = this.openWeatherService.getBboxForecast(europeBbox).subscribe(
       data => {
@@ -28,13 +28,12 @@ export class BrowseSectionComponent implements OnInit, OnDestroy {
     );
   }
   
-  onWeatherCardSelect(city) {
+  onWeatherCardSelect(city): void {
     this.cityForecastSub = this.openWeatherService.getCityForecast(city.name).subscribe((data: WeatherForecast) => {
-      this.weatherService.setCityWeatherForecast(data);
     });
   }
   
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.europeForecastSub) {
       this.europeForecastSub.unsubscribe();
     }

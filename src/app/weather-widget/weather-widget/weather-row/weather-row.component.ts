@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Forecast} from '../../../shared/models/weather-forecast';
+import {Forecast, WeatherForecast} from '../../../shared/models/weather-forecast';
 
 @Component({
   selector: 'app-weather-row',
@@ -7,9 +7,9 @@ import {Forecast} from '../../../shared/models/weather-forecast';
   styleUrls: ['./weather-row.component.scss']
 })
 export class WeatherRowComponent implements OnInit {
-  @Input() isActive;
-  @Input() day: Forecast;
-  @Output() active: EventEmitter<Forecast> = new EventEmitter<Forecast>();
+  @Input() isActive: boolean;
+  @Input() day: Array<Forecast>;
+  @Output() active: EventEmitter<Array<Forecast>> = new EventEmitter<Array<Forecast>>();
   
   constructor() {
   }
@@ -19,7 +19,6 @@ export class WeatherRowComponent implements OnInit {
   
   onRowClick() {
     this.active.emit(this.day);
-    // console.log('day clicked is ', this.day);
   }
   
 }

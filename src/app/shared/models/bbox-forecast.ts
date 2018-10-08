@@ -20,21 +20,21 @@ export interface BboxForecast {
     temp_min: number,
     temp_max: number,
     pressure: number,
-    sea_level: number,
-    grnd_level: number,
-    temp_kf: number,
-    humidity: number
+    sea_level?: number,
+    grnd_level?: number,
+    temp_kf?: number,
+    humidity?: number
   },
   weather: Array<Weather>;
   name: string,
-  rain: any,
-  snow: any,
-  wind: { speed: number, deg: number };
+  rain?: any,
+  snow?: any,
+  wind?: { speed?: number, deg?: number, var_beg?: number, var_end?: number };
 }
 
 export interface BboxForecasts {
-  calctime: number
-  cnt: number
-  cod: number
+  calctime: number,
+  cnt: number,
+  cod: string,
   list: Array<BboxForecast>
 }

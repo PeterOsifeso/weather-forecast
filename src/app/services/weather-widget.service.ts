@@ -10,28 +10,28 @@ export class WeatherWidgetService {
   constructor() {
   }
   
-  setCityWeatherForecast(cityWeatherForecast) {
+  setCityWeatherForecast(cityWeatherForecast: WeatherForecast): void {
     this.cityWeatherForecast = cityWeatherForecast;
   }
   
-  getCityWeatherForecast() {
+  getCityWeatherForecast(): WeatherForecast {
     return this.cityWeatherForecast;
   }
   
-  filterDates(weatherForecast): Array<Forecast[]> {
-    const filteredForecastDays = [];
+  groupDates(weatherForecast): Array<Array<WeatherForecast>> {
+    const groupedForecastDays = [];
     let currentDate = weatherForecast.list[0].dt_txt.split(' ')[0];
-    filteredForecastDays[0] = [];
+    groupedForecastDays[0] = [];
     weatherForecast.list.forEach(
       (data: Forecast, i) => {
         if (currentDate === data.dt_txt.split(' ')[0]) {
-          filteredForecastDays[filteredForecastDays.length - 1].push(data);
+          groupedForecastDays[groupedForecastDays.length - 1].push(data);
         } else {
           currentDate = data.dt_txt.split(' ')[0];
-          filteredForecastDays.push(weatherForecast.list[i]);
-          filteredForecastDays[filteredForecastDays.length - 1] = [];
+          groupedForecastDays.push(weatherForecast.list[i]);
+          groupedForecastDays[groupedForecastDays.length - 1] = [];
         }
       });
-    return filteredForecastDays;
+    return groupedForecastDays;
   }
 }

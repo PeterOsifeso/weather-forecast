@@ -28,11 +28,29 @@ describe('BrowseSectionComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+  
+  it('should get europe weather forecast from OpenWeather API on Init ', () => {
     spyOn(mockOpenWeather, 'getBboxForecast').and.returnValue(Observable.create( observer => observer.next({})));
     component.ngOnInit();
     fixture.detectChanges();
     expect(mockOpenWeather.getBboxForecast).toHaveBeenCalled();
   });
+  
+  it('should get weather details for selected european city onWeatherCardSelect ', () => {
+    spyOn(mockOpenWeather, 'getCityForecast').and.returnValue(Observable.create( observer => observer.next({})));
+    component.onWeatherCardSelect('');
+    expect(mockOpenWeather.getCityForecast).toHaveBeenCalled();
+  });
+  
+  it('should unsubscribe from all subscriptions onDestroy()', () => {
+    component.ngOnInit();
+    component.onWeatherCardSelect('');
+    component.ngOnDestroy();
+    expect(component.cityForecastSub.closed).toBeTruthy();
+    expect(component.europeForecastSub.closed).toBeTruthy();
+  })
 });

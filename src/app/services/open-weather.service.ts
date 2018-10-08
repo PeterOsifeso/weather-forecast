@@ -20,8 +20,8 @@ export class OpenWeatherService {
   getCityForecast(cityName: string): Observable<WeatherForecast> {
     const params = {
       q: cityName,
-      appId: OPEN_WEATHER_API_CONFIG.API_KEY,
-      units: 'metric'
+      units: 'metric',
+      appId: OPEN_WEATHER_API_CONFIG.API_KEY
     };
     return this.http.get<WeatherForecast>(this.cityForecastApiUrl, {params});
   }

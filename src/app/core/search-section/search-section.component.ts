@@ -30,7 +30,7 @@ export class SearchSectionComponent implements OnInit, OnDestroy {
       this.searchError = null;
       this.weatherService.setCityWeatherForecast(data);
     }, err => {
-      this.searchError = this.form.getRawValue().city + ' ' + err.error.message;
+      this.searchError = value + ' ' + err.error.message;
     });
   }
   

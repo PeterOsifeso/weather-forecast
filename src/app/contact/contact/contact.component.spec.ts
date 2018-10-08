@@ -45,7 +45,45 @@ describe('ContactComponent', () => {
     expect(imageUploader.uploadFile).toHaveBeenCalled();
     expect(component.isUploaded).toBeTruthy()
   });
-   
+  it('should not upload a file greater than 10mb', () => {
+    // Simulate an image upload
+    let blob = null;
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", '/assets/11mb.jpg');
+    xhr.responseType = "blob";
+    xhr.onload = function()
+    {
+      blob = xhr.response;
+      let file = new File([blob], '11mb.jpg', {type: 'image/png', lastModified: Date.now()});
+      let largeFileEvent = {target: {files: [file]}};
+      component.uploadFile(largeFileEvent);
+      expect(component.isUploaded).toBeDefined();
+      expect(component.uploadError).toBe('The file you selected is above 10MB');
+      expect(component.isUploaded).toBeFalsy();
+    };
+    xhr.send()
+  });
+  
+  it('should upload a file less than 10mb', () => {
+    // Simulate an image upload
+    let blob = null;
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", '/assets/new_york_mobile.jpg');
+    xhr.responseType = "blob";
+    xhr.onload = function()
+    {
+      blob = xhr.response;
+      let file = new File([blob], '11mb.jpg', {type: 'image/png', lastModified: Date.now()});
+      let regularFileEvent = {target: {files: [file]}};
+      component.uploadFile(regularFileEvent);
+      // TODO - HACK -> Find a better way to do this
+      setTimeout(() => {
+        expect(component.isUploaded).toBeTruthy();
+      }, 2000)
+    };
+    xhr.send()
+  });
+  
    it('should submit the form onSubmit', () => {
      component.submitForm({});
      fixture.detectChanges();

@@ -12,6 +12,4 @@ export class HamburgerMenuDirective {
       this.menuElement.className = 'topnav';
     }
   }
-  constructor() {
-  }
 }

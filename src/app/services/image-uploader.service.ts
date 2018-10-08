@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class ImageUploaderService {
-  fileUploadPercentage: string;
+  private fileUploadPercentage: string;
+  
   constructor() {
   }
   
@@ -12,10 +13,10 @@ export class ImageUploaderService {
     return Observable.create(observer => {
       let reader = new FileReader();
       if (event.target.files && event.target.files.length) {
-    
+        
         const [file] = event.target.files;
         if (file.size > 10 * 1024 * 1024) {
-          observer.error({message: 'The file you selected is above 10MB', error: true});
+          observer.error({message: 'The file you selected is above 10MB'});
         } else {
           reader.readAsDataURL(file);
           reader.onprogress = (data) => {

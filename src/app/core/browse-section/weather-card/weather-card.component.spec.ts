@@ -22,4 +22,10 @@ describe('WeatherCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should emit event when weather card clicked', () => {
+    spyOn(component.cardSelect, 'emit');
+    component.onSelect();
+    expect(component.cardSelect.emit).toHaveBeenCalled();
+  });
 });

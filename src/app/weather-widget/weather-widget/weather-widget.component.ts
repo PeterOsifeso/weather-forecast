@@ -10,8 +10,9 @@ import {WeatherWidgetService} from '../../services/weather-widget.service';
 export class WeatherWidgetComponent implements OnChanges {
   // @Input() readonly cityWeatherForecast: WeatherForecast;
   @Input() cityWeatherForecast: WeatherForecast;
-  filteredForecastDays: Array<Array<Forecast>>;
-  activeDay: Array<Forecast>;
+  groupedForecastDays: Array<Array<WeatherForecast>>;
+  activeDay: Array<WeatherForecast>;
+  currentDay: Array<WeatherForecast>;
   
   constructor(private  weatherWidgetService: WeatherWidgetService) {
   }
@@ -21,11 +22,12 @@ export class WeatherWidgetComponent implements OnChanges {
   }
   
   initializeWeatherWidget(): void {
-    this.filteredForecastDays = this.weatherWidgetService.filterDates(this.cityWeatherForecast);
-    this.activeDay = this.filteredForecastDays[0];
+    this.groupedForecastDays = this.weatherWidgetService.groupDates(this.cityWeatherForecast);
+    this.activeDay = this.groupedForecastDays[0];
+    this.currentDay = this.groupedForecastDays [0];
   }
   
-  onDaySelect(day: Array<Forecast>): void {
+  onDaySelect(day: Array<WeatherForecast>): void {
     this.activeDay = day;
   }
 }

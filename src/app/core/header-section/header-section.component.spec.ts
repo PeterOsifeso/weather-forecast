@@ -24,4 +24,9 @@ describe('HeaderSectionComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should define menu Items onInit', () => {
+    expect(component.menuItems.length).toBeGreaterThanOrEqual(1);
+    expect(component.menuItems).toContain({name: 'Home', link: '/', fragment: ''})
+  });
 });
