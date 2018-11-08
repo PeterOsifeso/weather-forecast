@@ -1,4 +1,4 @@
-<div class="card" (click)="onSelect()" [class.card-active]="activeWeather.city.name === cityWeather.name" *ngIf="activeWeather">
+<div class="card" (click)="onSelect()" [class.card-active]="activeWeather.city.id === cityWeather.id" *ngIf="activeWeather">
   <div class="card-container">
     <img class="card-img" src="{{imgUrl + cityWeather.weather[0].icon + '.png' }}">
     <h3 class="city-name">{{cityWeather.name}}</h3>

@@ -2,6 +2,7 @@ export interface Forecast {
   clouds: { all: number };
   dt: number;
   dt_txt: string;
+  id?: number,
   name?: string;
   wind?: { speed: number, deg: number};
   main: {
