@@ -1,17 +1,21 @@
 <section class="browse-section-container" id="browse">
-  <main class="browse-section">
-    <br>
-    <h3 class="section-header">Browse City</h3>
-    <br>
-    <div class="weather-cards-container">
-      <div class="city-weather-cards" *ngIf="forecasts">
-        <div class="city-weather-card" *ngFor="let cityWeather of forecasts| paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems: forecasts.length }">
-          <app-weather-card [activeWeather]="weatherService.getCityWeatherForecast()" [cityWeather]="cityWeather" (cardSelect)="onWeatherCardSelect($event)"></app-weather-card>
-        </div>
-      </div>
-    </div>
-    <div class="pagination-controls">
-      <pagination-controls maxSize="9" responsive="true" (pageChange)="currentPage = $event"></pagination-controls>
-    </div>
-  </main>
+	<main class="browse-section">
+		<br>
+		<h3 class="section-header">Browse City</h3>
+		<br>
+		<div class="weather-cards-container">
+			<div class="city-weather-cards" *ngIf="forecasts">
+				<div class="city-weather-card"
+				     *ngFor="let cityWeather of forecasts| paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems: forecasts.length }">
+					<app-weather-card [activeWeather]="weatherService.getCityWeatherForecast() | async"
+					                  [cityWeather]="cityWeather"
+					                  (cardSelect)="onWeatherCardSelect($event)"></app-weather-card>
+				</div>
+			</div>
+		</div>
+		<div class="pagination-controls">
+			<pagination-controls maxSize="9" responsive="true"
+			                     (pageChange)="currentPage = $event"></pagination-controls>
+		</div>
+	</main>
 </section>

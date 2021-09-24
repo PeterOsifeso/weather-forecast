@@ -1,17 +1,18 @@
 <section class="search-section-container" id="search">
-  <main class="search-section">
-    <h3 class="section-header">Search City</h3>
-    <br>
-    <form [formGroup]="form">
-      <div class="form-group">
-        <input id="city" type="text" placeholder="City..." formControlName="city">
-      </div>
-      <button (click)="searchCity(form.getRawValue().city)" [disabled]="form.invalid">Search</button>
-    </form>
-    <div class="error-message" *ngIf="searchError">
-     {{searchError}}
-    </div>
-    <br>
-    <app-weather-widget *ngIf="weatherService.getCityWeatherForecast()" [cityWeatherForecast]="weatherService.getCityWeatherForecast()"></app-weather-widget>
-  </main>
+	<main class="search-section">
+		<h3 class="section-header">Search City</h3>
+		<br>
+		<form [formGroup]="form">
+			<div class="form-group">
+				<input id="city" type="text" placeholder="City..." formControlName="city">
+			</div>
+			<button (click)="searchCity(form.getRawValue().city)" [disabled]="form.invalid">Search</button>
+		</form>
+		<div class="error-message" *ngIf="searchError">
+			{{searchError}}
+		</div>
+		<br>
+		<app-weather-widget *ngIf="searchCompleted && !searchError"
+		                    [cityWeatherForecast]="weatherService.getCityWeatherForecast() | async"></app-weather-widget>
+	</main>
 </section>

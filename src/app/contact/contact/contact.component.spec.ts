@@ -1,6 +1,6 @@
-import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ContactComponent } from './contact.component';
+import {ContactComponent} from './contact.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ImageUploaderService} from '../../services/image-uploader.service';

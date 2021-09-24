@@ -1,4 +1,4 @@
-import { KelvinToCelciusPipe } from './kelvin-to-celcius.pipe';
+import {KelvinToCelciusPipe} from './kelvin-to-celcius.pipe';
 import {TestBed} from '@angular/core/testing';
 
 let pipe: any;

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Forecast, WeatherForecast} from '../../../shared/models/weather-forecast';
+import {Forecast} from '../../../shared/models/weather-forecast';
 
 @Component({
   selector: 'app-weather-row',

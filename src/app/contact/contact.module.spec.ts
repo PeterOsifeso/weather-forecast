@@ -1,4 +1,4 @@
-import { ContactModule } from './contact.module';
+import {ContactModule} from './contact.module';
 
 describe('ContactModule', () => {
   let contactModule: ContactModule;

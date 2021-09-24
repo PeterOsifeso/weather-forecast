@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SearchSectionComponent } from './search-section.component';
+import {SearchSectionComponent} from './search-section.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {Component, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {Observable, of} from 'rxjs';
 import {OpenWeatherService} from '../../services/open-weather.service';

@@ -1,4 +1,4 @@
-import { UtcDateToRegularPipe } from './utc-date-to-regular.pipe';
+import {UtcDateToRegularPipe} from './utc-date-to-regular.pipe';
 import {TestBed} from '@angular/core/testing';
 
 describe('UtcDateToRegularPipe', () => {

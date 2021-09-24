@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Menu} from '../../shared/models/menu';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {faUser, faEnvelope} from '@fortawesome/free-regular-svg-icons';
+import {faEnvelope, faUser} from '@fortawesome/free-regular-svg-icons';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {ImageUploaderService} from '../../services/image-uploader.service';
 import {Subscription} from 'rxjs';

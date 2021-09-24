@@ -1,5 +1,5 @@
-import { ContactRoutingModule } from './contact-routing.module';
-import {fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {ContactRoutingModule} from './contact-routing.module';
+import {TestBed} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ContactComponent} from './contact/contact.component';
 import {Router, Routes} from '@angular/router';

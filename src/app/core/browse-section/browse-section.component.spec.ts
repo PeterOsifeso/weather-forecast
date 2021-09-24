@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BrowseSectionComponent } from './browse-section.component';
+import {BrowseSectionComponent} from './browse-section.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {PaginatePipe} from 'ngx-pagination';
 import {HttpClientTestingModule} from '@angular/common/http/testing';

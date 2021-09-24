@@ -1,10 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MapSectionComponent } from './map-section.component';
+import {MapSectionComponent} from './map-section.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {OpenWeatherService} from '../../services/open-weather.service';
-import Spy = jasmine.Spy;
 import {Observable} from 'rxjs';
 
 describe('MapSectionComponent', () => {

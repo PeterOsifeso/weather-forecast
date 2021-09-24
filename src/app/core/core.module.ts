@@ -15,20 +15,20 @@ import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
 import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SharedModule,
-    ReactiveFormsModule,
-    WeatherWidgetModule,
-    AgmCoreModule,
-    AgmSnazzyInfoWindowModule,
-    AgmOverlays,
-    AgmJsMarkerClustererModule,
-    NgxPaginationModule
-  ],
-  declarations: [HeaderSectionComponent, SearchSectionComponent, BrowseSectionComponent, WeatherCardComponent, MapSectionComponent],
-  exports: [HeaderSectionComponent, SearchSectionComponent, WeatherWidgetModule, BrowseSectionComponent, MapSectionComponent],
-  providers: [GoogleMapsAPIWrapper]
+    imports: [
+        CommonModule,
+        SharedModule,
+        ReactiveFormsModule,
+        WeatherWidgetModule,
+        AgmCoreModule,
+        AgmSnazzyInfoWindowModule,
+        AgmOverlays,
+        AgmJsMarkerClustererModule,
+        NgxPaginationModule
+    ],
+    declarations: [HeaderSectionComponent, SearchSectionComponent, BrowseSectionComponent, WeatherCardComponent, MapSectionComponent],
+    exports: [HeaderSectionComponent, SearchSectionComponent, WeatherWidgetModule, BrowseSectionComponent, MapSectionComponent],
+    providers: [GoogleMapsAPIWrapper]
 })
 export class CoreModule {
 }

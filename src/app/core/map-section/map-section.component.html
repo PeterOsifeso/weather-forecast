@@ -1,28 +1,29 @@
 <section class="map-section-container" id="map">
-  <main class="map-section" >
-    <h3 class="section-header">Map</h3>
-    <br>
+	<main class="map-section">
+		<h3 class="section-header">Map</h3>
+		<br>
 
-    <agm-map [zoom]="zoom"
-             [latitude]="lat"
-             [longitude]="lng"
-             (zoomChange)="setZoom($event)"
-             (idle)="getCitiesInBounds()"
-             (boundsChange)="boundsChanged($event)"
-             [zoomControl]="true"
-             [minZoom]="3"
-             [streetViewControl]="false">
-      <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
-        <agm-overlay
-          *ngFor="let city of cities"
-          [latitude]="city.coord.Lat"
-          [longitude]="city.coord.Lon">
-          <div class="overlay-content">
-            <img src="{{imgUrl + city.weather[0].icon + '.png'}}">
-            <p class="text-center temp-text">{{city.main.temp}}°C</p>
-          </div>
-        </agm-overlay>
-      </agm-marker-cluster>
-    </agm-map>
-  </main>
+		<agm-map [zoom]="zoom"
+		         [latitude]="lat"
+		         [longitude]="lng"
+		         (zoomChange)="setZoom($event)"
+		         (idle)="getCitiesInBounds()"
+		         (boundsChange)="boundsChanged($event)"
+		         [zoomControl]="true"
+		         [minZoom]="3"
+		         [streetViewControl]="false">
+			<agm-marker-cluster
+					imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
+				<agm-overlay
+						*ngFor="let city of cities"
+						[latitude]="city.coord.lat"
+						[longitude]="city.coord.lon">
+					<div class="overlay-content">
+						<img src="{{imgUrl + city.weather[0].icon + '.png'}}">
+						<p class="text-center temp-text">{{city.main.temp}}°C</p>
+					</div>
+				</agm-overlay>
+			</agm-marker-cluster>
+		</agm-map>
+	</main>
 </section>

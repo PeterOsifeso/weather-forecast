@@ -1,4 +1,4 @@
-import { WeatherWidgetModule } from './weather-widget.module';
+import {WeatherWidgetModule} from './weather-widget.module';
 
 describe('WeatherWidgetModule', () => {
   let weatherWidgetModule: WeatherWidgetModule;
